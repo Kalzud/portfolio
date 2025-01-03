@@ -10,7 +10,7 @@ import glitchVid from './assets/tvglitch.mp4';
 
 
 const Intro = () => {
-    const [videoEnded, setVideoEnded] = useState(false);
+    const [videoEnded, setVideoEnded] = useState(true);
 
     //Handle video ended
     const handleVideoEnd = () => {

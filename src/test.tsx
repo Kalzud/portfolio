@@ -1,92 +1,169 @@
+import classNames from "classnames"; // Utility for conditional classes
+import { motion } from "framer-motion";
 import React, { useState } from "react";
-import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
-import { useSwipeable } from "react-swipeable";
+import Tilt from "react-parallax-tilt";
+import "./App.css"; // Tailwind CSS import if necessary
 
-
-interface Card {
-  id: number;
+interface CardProps {
   title: string;
+  description: string;
   image: string;
+  stack: string[];
 }
 
-interface GalleryProps {
-  cards: Card[];
-}
- 
+const cards: CardProps[] = [
+  {
+    title: "Mountain View",
+    description: "Experience the serene beauty of nature.",
+    image: "https://via.placeholder.com/150",
+    stack: ["React", "Tailwind", "TypeScript"],
+  },
+  {
+    title: "Beach Paradise",
+    description: "Relax and unwind by the waves.",
+    image: "https://via.placeholder.com/150",
+    stack: ["Next.js", "Framer Motion", "CSS"],
+  },
+  {
+    title: "City Lights",
+    description: "Explore the bustling nightlife.",
+    image: "https://via.placeholder.com/150",
+    stack: ["Node.js", "Express", "MongoDB"],
+  },
+];
 
-const Gallery: React.FC<GalleryProps> = ({ cards }) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+const CardIn: React.FC = () => {
+  const [currentCard, setCurrentCard] = useState<CardProps | null>(null);
+  const [hoveredCard, setHoveredCard] = useState<CardProps | null>(null);
 
-  const handleNext = () => {
-    setCurrentIndex((prev) => (prev + 1) % cards.length);
-  };
-
-  const handlePrev = () => {
-    setCurrentIndex((prev) => (prev - 1 + cards.length) % cards.length);
-  };
-
-  const swipeHandlers = useSwipeable({
-    onSwipedLeft: () => handleNext(),
-    onSwipedRight: () => handlePrev(),
-  });
-  
+  // Determine the card to highlight
+  const highlightedCard = hoveredCard || currentCard;
 
   return (
-    <div {...swipeHandlers} className="relative w-full max-w-5xl mx-auto overflow-hidden">
-      {/* Main Container */}
-      <div className="flex items-center justify-center gap-6">
-        {/* Left Arrow */}
-        <button
-          onClick={handlePrev}
-          className="absolute left-4 z-10 bg-gray-800 p-2 rounded-full shadow-md text-white hover:bg-gray-700"
-        >
-          <FiChevronLeft size={24} />
-        </button>
-
-        {/* Cards */}
-        <div className="relative flex justify-center items-center w-full overflow-hidden">
-          {cards.map((card, index) => {
-            const offset = (index - currentIndex + cards.length) % cards.length;
-
-            return (
-              <div
-                key={card.id}
-                className={`absolute transition-transform duration-500 ease-in-out ${
-                  offset === 0
-                    ? "scale-105 opacity-100 z-20"
-                    : offset === 1
-                    ? "scale-90 opacity-60 z-10 translate-x-full"
-                    : offset === cards.length - 1
-                    ? "scale-90 opacity-60 z-10 -translate-x-full"
-                    : "opacity-0 z-0"
-                }`}
-                style={{
-                  transform: `translateX(${offset * 100}%)`,
-                }}
-              >
-                <div className="w-60 h-80 bg-white rounded-lg shadow-lg p-4 text-center">
-                  <img
-                    src={card.image}
-                    alt={card.title}
-                    className="w-full h-48 object-cover rounded-t-lg"
-                  />
-                  <h3 className="mt-4 font-bold">{card.title}</h3>
-                </div>
+    <div className="min-h-screen bg-gradient-to-br from-blue-500 to-purple-600 p-4 sm:p-10">
+      {/* Card Section */}
+      {/* <motion.div
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6"
+        initial={{ opacity: 0, x: -100 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8 }}
+      >
+        {cards.map((card, index) => (
+          <div
+            key={index}
+            className={classNames(
+              "w-full h-80 bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300",
+              {
+                "bg-purple-200 border-4 border-purple-500":
+                  highlightedCard?.title === card.title,
+              }
+            )}
+            onMouseEnter={() => setHoveredCard(card)}
+            onMouseLeave={() => setHoveredCard(null)}
+            onClick={() => setCurrentCard(card)}
+          >
+            <Tilt
+              className="w-full h-full"
+              tiltMaxAngleX={25}
+              tiltMaxAngleY={25}
+              glareEnable={true}
+              glareMaxOpacity={0.4}
+              scale={1.1}
+            >
+              <img src={card.image} alt={card.title} className="w-full h-40 object-cover" />
+              <div className="p-4">
+                <h2 className="text-lg font-bold text-gray-800">{card.title}</h2>
+                <p className="text-sm text-gray-600 mt-2">{card.description}</p>
               </div>
-            );
-          })}
-        </div>
+            </Tilt>
+          </div>
+        ))}
+      </motion.div> */}
 
-        {/* Right Arrow */}
-        <button
-          onClick={handleNext}
-          className="absolute right-4 z-10 bg-gray-800 p-2 rounded-full shadow-md text-white hover:bg-gray-700"
+<motion.div
+  className="grid grid-cols-3 gap-2 sm:gap-4"
+  initial={{ opacity: 0, x: -100 }}
+  whileInView={{ opacity: 1, x: 0 }}
+  transition={{ duration: 0.8 }}
+>
+  {cards.map((card, index) => (
+    <Tilt
+      key={index} // Move key here
+      className="w-full h-full"
+      tiltMaxAngleX={25}
+      tiltMaxAngleY={25}
+      glareEnable={true}
+      glareMaxOpacity={0.4}
+      scale={1.1}
+    >
+      <div
+        className={classNames(
+          "relative w-full h-40 sm:h-60 lg:h-80 rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300",
+          {
+            "bg-purple-200 border-4 border-purple-500":
+              highlightedCard?.title === card.title,
+          }
+        )}
+        style={{
+          backgroundImage: `url(${card.image})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+        onMouseEnter={() => setHoveredCard(card)}
+        onMouseLeave={() => setHoveredCard(null)}
+        onClick={() => setCurrentCard(card)}
+      >
+        <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center">
+          <h2
+            className={classNames(
+              "text-white font-bold",
+              "text-sm sm:text-lg lg:text-xl"
+            )}
+          >
+            {card.title}
+          </h2>
+        </div>
+      </div>
+    </Tilt>
+  ))}
+</motion.div>
+
+
+
+      {/* Information Section */}
+      <div className="mt-12 p-6 bg-white rounded-lg shadow-lg">
+        <motion.div
+          key={highlightedCard?.title}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.5 }}
         >
-          <FiChevronRight size={24} />
-        </button>
+          <div className="grid grid-cols-3 gap-4 mb-4">
+            {highlightedCard?.stack.map((tech, index) => (
+              <motion.img
+                key={index}
+                src={`https://via.placeholder.com/40?text=${tech}`} // Replace with actual icon URLs
+                alt={tech}
+                className="w-10 h-10 rounded-full"
+                initial={{ y: 50, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+              />
+            ))}
+          </div>
+          <motion.p
+            className="text-gray-800 text-base"
+            initial={{ x: 50, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.5 }}
+          >
+            {highlightedCard?.description || "Hover over or click on a card to see more details!"}
+          </motion.p>
+        </motion.div>
       </div>
     </div>
   );
 };
 
-export default Gallery;
+export default CardIn;
