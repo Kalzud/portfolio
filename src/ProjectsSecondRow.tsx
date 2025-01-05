@@ -5,9 +5,9 @@ import Tilt from "react-parallax-tilt";
 
 
 // ======================================================= Picture imports for projects ====================================================================
-import noteTakingBg from './assets/note taking.png';
-import recruitmentToolBg from './assets/phone messaging.png';
-import movieStreamingBg from './assets/screentalker.jpg';
+import javaDesktopGameBg from './assets/desktopGame.png';
+import socialWebBg from './assets/phone messaging.png';
+import swiftGameBg from './assets/swiftGame.png';
 
 
 // ======================================================= Picture imports for stack ====================================================================
@@ -115,8 +115,8 @@ const projects: ProjectProps[] = [
     {
         id: 0, 
         title:"Social Media Web Application", 
-        stack: [32,19,30,11,9,23,29,35,39], 
-        image: recruitmentToolBg,
+        stack: [32,23,30,1,9,11,19,33,], 
+        image: socialWebBg,
 
         motivation: (
             <>
@@ -130,19 +130,11 @@ const projects: ProjectProps[] = [
 
         content: (
             <>
-                I could call it my first dabble into the world of{" "}
-                <span className="text-2xl font-bold">PHP</span>,{" "}
-                yet an explosive web tool was made that aided the onboarding of applicants in 
-                recruitment processes. I would turn out to be juggling{" "}
-                <span className="text-2xl font-bold">SCRUM</span>{" "}
-                requirements with stakeholders whilst maintaining{" "}
-                <span className="text-2xl font-bold">Backend Excellency</span>. My{" "}
-                <span className="text-2xl font-bold">PHP</span>,{" "}
-                <span className="line-through">affair</span>, I mean friendship did not leave out my dear{" "}
-                <span className="text-2xl font-bold">SQL</span> queries and{" "}
-                <span className="text-2xl font-bold">Typescript's</span>{" "}
-                sibling{" "}
-                <span className="text-2xl font-bold">Javascript</span>.<br/>
+                This Unwarranted competition lead to a Social Media Web application exploring the boundaries of{" "} 
+                <span className="text-2xl font-bold">PHP</span> and <span className="text-2xl font-bold">Javascript</span> to implement features 
+                ranging from just messaging, comments and post likes to <span className="text-2xl font-bold">Live maps</span> to view your friends 
+                live locations based of their IP address. Now did I need to lock myself in my room for time and visit the shower less often than normal 
+                just to get this done in a short time, probably not but it was worth the bragging rights.
             </>
         ),
 
@@ -150,92 +142,78 @@ const projects: ProjectProps[] = [
             <button className="py-2 px-4 rounded">
                 <a href="mailto:udumakalz@gmail.com?subject=Inquiry about Social media Web Application&body=Hi,%0A%0AI would like to know more about the Social media Web Application project." 
                 className="text-white bg-gradient-to-r from-blue-500 to-purple-600 block w-full text-center py-2 px-4 rounded">
-                    Email to Find Out More About Project
+                    Email to Find Out More About This Project
                 </a>
             </button>
         ),
     },
     //=========================================== End ====================================================================================================================
 
-    //=========================================== Movie Streaming and Social Media Application mix ; Start ==================================================================================
+    //=========================================== Java Desktop Game ; Start ==================================================================================
     {
         id: 0, 
-        title:"Movie Streaming and Social Media Application mix", 
-        stack: [22,25,2,16,17,35], 
-        image: movieStreamingBg,
+        title:"Java Desktop Game Application", 
+        stack: [22], 
+        image: javaDesktopGameBg,
 
         motivation: (
             <>
                 <span className="text-2xl font-bold underline">Motivation</span><br/>
-                Why not Combine Netflix, Youtube, Instagram and Whatsapp in{" "} 
-                <span className="text-xl font-bold">One App</span>??
+                A <span className="text-xl font-bold">Game</span> I could play on <span className="text-xl font-bold">My Own Terms</span>.
             </>
         ),
 
         content: (
             <>
-                Frankly, I was tired of watching amazing movies alone; well that's part of it, the other part was 
-                me thinking it would be interesting to have all of this in one application, hence began to make it.
-                This is one of my most profound immersive mobile application project combining{" "} 
-                <span className="text-2xl font-bold">Streaming</span> and{" "} 
-                <span className="text-2xl font-bold">Social Features</span>.{" "}
-                Even if it was not as explosive to details as the guy in my head drew it, it was very close
-                and I have got{" "} 
-                <span className="text-2xl font-bold">Java</span>,{" "} 
-                <span className="text-2xl font-bold">Junit</span> and{" "} 
-                <span className="text-2xl font-bold">Firebase</span>{" "} 
-                to thank for that.
+                Asides Need For Speed and World Class Fifa I have never really excelled at games, so I when I wanted to make something I could play on my own terms 
+                I turned to <span className="text-2xl font-bold">Java</span>. This opportunity presented me with <span className="text-2xl font-bold">Java algorithm</span>{" "} 
+                and <span className="text-2xl font-bold">Game Physics</span> experience; intensively pushing my Java knowledge boundaries. 
+                Well the Euphoria was short lived as I could not beat my own high score after a certain point.
             </>
         ),
 
         findOutMoreButton: (
             <button className="py-2 px-4 rounded">
-                <a href="mailto:udumakalz@gmail.com?subject=Inquiry about Recruitment Assistance Web Application&body=Hi,%0A%0AI would like to know more about the Recruitment Assistance Web Application project." 
+                <a href="mailto:udumakalz@gmail.com?subject=Inquiry about Java Desktop Game Application&body=Hi,%0A%0AI would like to know more about the Java Desktop Game Application project." 
                 className="text-white bg-gradient-to-r from-blue-500 to-purple-600 block w-full text-center py-2 px-4 rounded">
-                    Email to Find Out More About Project
+                    Email to Find Out More About This Project
                 </a>
             </button>
         ),
     },
     //=========================================== End ====================================================================================================================
 
-    //=========================================== Flutter Immersive note taking Application ; Start ==================================================================================
+    //=========================================== Swift Mobile 2D Game ; Start ==================================================================================
     {
         id: 0, 
-        title:"Flutter Immersive Note Taking Application", 
-        stack: [18,12,8,7,13,17,14,10,39], 
-        image: noteTakingBg,
+        title:"Swift Mobile 2D Game Application", 
+        stack: [36,40,21], 
+        image: swiftGameBg,
 
         motivation: (
             <>
                 <span className="text-2xl font-bold underline">Motivation</span><br/>
-                A Quest to fix my Mobile{" "} 
-                <span className="text-xl font-bold">Cross-Platform</span>{" "} 
+                As a sign of <span className="text-xl font-bold">Love</span> I had to remake my{" "} 
+                <span className="text-xl font-bold">Kotlin</span> game on <span className="text-xl font-bold">IOS</span> so my friends with{" "}
+                <span className="text-xl font-bold">I-Phones</span> could tell me how{" "} 
+                <span className="text-xl font-bold">good I am at making Games</span>.
                 Road blocks.
             </>
         ),
 
         content: (
             <>
-                Boredom for me means I about about to discover something; This time it was a personalised immersive
-                note taking application with <span className="text-2xl font-bold">Flutter</span>,{" "}
-                and what a <span className="line-through">lover</span> I mean framework it has been.{" "}
-                With this framework I traveled the roads of <span className="text-2xl font-bold">Bloc management</span>{" "}
-                strategies, to <span className="text-2xl font-bold">Flutter</span>,{" "}
-                <span className="text-2xl font-bold">Widget</span> and <span className="text-2xl font-bold">Bloc Testing</span>{" "}
-                to <span className="text-2xl font-bold">Development Operations</span> and love-hate fights with{" "}
-                <span className="text-2xl font-bold">Ci-Cd pipelines</span> and  <span className="text-2xl font-bold">Docker</span>{" "}
-                to sweet interlocking integration with <span className="text-2xl font-bold">Firebase Authentication</span> and{" "}
-                <span className="text-2xl font-bold">FireStore</span>.<br/>
-                <button>Find Out More About Project</button>
+                After some swift exploration (see what I did there) with <span className="text-2xl font-bold">Swift animations</span>,{" "} 
+                <span className="text-2xl font-bold">swipe gestures</span> and <span className="text-2xl font-bold">sand box</span>{" "}
+                I was able to bring to actualization a game that the people around my life who have refused to switch to samsung could play. 
             </>
         ),
 
         findOutMoreButton: (
             <button className="py-2 px-4 rounded">
-                <a href="mailto:udumakalz@gmail.com?subject=Inquiry about Recruitment Assistance Web Application&body=Hi,%0A%0AI would like to know more about the Recruitment Assistance Web Application project." 
+                <a href="mailto:udumakalz@gmail.com?subject=Inquiry about Swift Mobile 2D Game Application&body=Hi,%0A%0AI would like to know more about the Swift Mobile 2D Game Application project." 
                 className="text-white bg-gradient-to-r from-blue-500 to-purple-600 block w-full text-center py-2 px-4 rounded">
-                    Email to Find Out More About Project
+                    Email to Find Out More About This Project
                 </a>
             </button>
         ),

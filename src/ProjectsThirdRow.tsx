@@ -5,8 +5,8 @@ import Tilt from "react-parallax-tilt";
 
 
 // ======================================================= Picture imports for projects ====================================================================
-import recruitmentToolBg from './assets/phone messaging.png';
-import movieStreamingBg from './assets/screentalker.jpg';
+import instaCloneBg from './assets/instaClone.png';
+import kotlinGameBg from './assets/kotlinGame.png';
 
 
 // ======================================================= Picture imports for stack ====================================================================
@@ -110,20 +110,17 @@ const getStacksForProject =(stackIds: number[]) => {
 };
 
 const projects: ProjectProps[] = [
-    //=========================================== Recruitment Assistance Web Application ; Start ==================================================================================
+    //=========================================== Kotlin 2D Game ; Start ==================================================================================
     {
         id: 0, 
-        title:"Recruitment Assistance Web Application", 
-        stack: [32,19,30,11,9,23,29,35,39], 
-        image: recruitmentToolBg,
+        title:"Kotlin Mobile 2D Game Application", 
+        stack: [26,2], 
+        image: kotlinGameBg,
 
         motivation: (
             <>
                 <span className="text-2xl font-bold underline">Motivation</span><br/>
-                A possibility for recruiters to worry{" "} 
-                only about which of the 1000 candidates{" "} 
-                they would pick for the job and the rest is a{" "}
-                <span className="text-xl font-bold">Button Clicking Aesthetic Euphoria</span>.
+                <span className="text-xl font-bold">Java</span> Sibling <span className="text-xl font-bold">Curiosity</span>.
             </>
         ),
 
@@ -147,27 +144,26 @@ const projects: ProjectProps[] = [
 
         findOutMoreButton: (
             <button className="py-2 px-4 rounded">
-                <a href="mailto:udumakalz@gmail.com?subject=Inquiry about Recruitment Assistance Web Application&body=Hi,%0A%0AI would like to know more about the Recruitment Assistance Web Application project." 
+                <a href="mailto:udumakalz@gmail.com?subject=Inquiry about Kotlin Mobile 2D Game Application&body=Hi,%0A%0AI would like to know more about the Kotlin Mobile 2D Game Application project." 
                 className="text-white bg-gradient-to-r from-blue-500 to-purple-600 block w-full text-center py-2 px-4 rounded">
-                    Email to Find Out More About Project
+                    Email to Find Out More About This Project
                 </a>
             </button>
         ),
     },
     //=========================================== End ====================================================================================================================
 
-    //=========================================== Movie Streaming and Social Media Application mix ; Start ==================================================================================
+    //=========================================== Instagram Clone ; Start ==================================================================================
     {
         id: 0, 
-        title:"Movie Streaming and Social Media Application mix", 
-        stack: [22,25,2,16,17,35], 
-        image: movieStreamingBg,
+        title:"Instagram Web Application Clone", 
+        stack: [27,32,6,23,39,31,34], 
+        image: instaCloneBg,
 
         motivation: (
             <>
                 <span className="text-2xl font-bold underline">Motivation</span><br/>
-                Why not Combine Netflix, Youtube, Instagram and Whatsapp in{" "} 
-                <span className="text-xl font-bold">One App</span>??
+                Laziness and Boredom
             </>
         ),
 
@@ -189,9 +185,9 @@ const projects: ProjectProps[] = [
 
         findOutMoreButton: (
             <button className="py-2 px-4 rounded">
-                <a href="mailto:udumakalz@gmail.com?subject=Inquiry about Recruitment Assistance Web Application&body=Hi,%0A%0AI would like to know more about the Recruitment Assistance Web Application project." 
+                <a href="mailto:udumakalz@gmail.com?subject=Inquiry about Instagram Web Application Clone&body=Hi,%0A%0AI would like to know more about the Instagram Web Application Clone project." 
                 className="text-white bg-gradient-to-r from-blue-500 to-purple-600 block w-full text-center py-2 px-4 rounded">
-                    Email to Find Out More About Project
+                    Email to Find Out More About This Project
                 </a>
             </button>
         ),

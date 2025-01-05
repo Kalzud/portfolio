@@ -150,7 +150,7 @@ const projects: ProjectProps[] = [
             <button className="py-2 px-4 rounded">
                 <a href="mailto:udumakalz@gmail.com?subject=Inquiry about Recruitment Assistance Web Application&body=Hi,%0A%0AI would like to know more about the Recruitment Assistance Web Application project." 
                 className="text-white bg-gradient-to-r from-blue-500 to-purple-600 block w-full text-center py-2 px-4 rounded">
-                    Email to Find Out More About Project
+                    Email to Find Out More About This Project
                 </a>
             </button>
         ),
@@ -192,7 +192,7 @@ const projects: ProjectProps[] = [
             <button className="py-2 px-4 rounded">
                 <a href="mailto:udumakalz@gmail.com?subject=Inquiry about Movie Streaming and Social Media Application&body=Hi,%0A%0AI would like to know more about the Movie Streaming and Social Media Application project." 
                 className="text-white bg-gradient-to-r from-blue-500 to-purple-600 block w-full text-center py-2 px-4 rounded">
-                    Email to Find Out More About Project
+                    Email to Find Out More About This Project
                 </a>
             </button>
         ),
@@ -227,7 +227,7 @@ const projects: ProjectProps[] = [
                 <span className="text-2xl font-bold">Ci-Cd pipelines</span> and  <span className="text-2xl font-bold">Docker</span>{" "}
                 to sweet interlocking integration with <span className="text-2xl font-bold">Firebase Authentication</span> and{" "}
                 <span className="text-2xl font-bold">FireStore</span>.<br/>
-                <button>Find Out More About Project</button>
+                <button>Find Out More About This Project</button>
             </>
         ),
 
