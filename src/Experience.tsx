@@ -329,9 +329,9 @@ const Experience: React.FC = () => {
                         })}
                     </div>
                     <h3 className="text-lg font-bold mt-6 underline">Brief Description</h3>
-                    <p className="text-base p-6 max-w-5xl mt-6">
+                    <p className="text-base p-6 mt-6">
                     <video
-                        className="h-96 object-cover"
+                        className="object-cover rounded-full"
                         src={screentalker}
                         autoPlay
                         muted
