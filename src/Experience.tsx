@@ -26,6 +26,7 @@ import mvc from './assets/mvc.png';
 import nodejs from './assets/nodejs.png';
 import php from './assets/php.png';
 import react from './assets/react.png';
+import screentalker from './assets/screentalker.mp4';
 import scrum from './assets/scrum.png';
 import typescript from './assets/typescript.png';
 import visualStudio from './assets/visual-studio.png';
@@ -328,9 +329,14 @@ const Experience: React.FC = () => {
                         })}
                     </div>
                     <h3 className="text-lg font-bold mt-6 underline">Brief Description</h3>
-                    <p className="text-base px-6 max-w-5xl mt-6">
-                        The company is a website building company and during my internship there I participated in 
-                        the building of sites for varying customers with varying specifications for varying business needs.
+                    <p className="text-base p-6 max-w-5xl mt-6">
+                    <video
+                        className="h-96 object-cover"
+                        src={screentalker}
+                        autoPlay
+                        muted
+                        loop
+                    />
                     </p>
                     <Tilt
                         className="w-fit h-fit text-center mt-6 pt-8 pb-5 items-center justify-center"
