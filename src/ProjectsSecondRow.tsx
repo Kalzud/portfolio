@@ -197,13 +197,12 @@ const projects: ProjectProps[] = [
                 <span className="text-xl font-bold">Kotlin</span> game on <span className="text-xl font-bold">IOS</span> so my friends with{" "}
                 <span className="text-xl font-bold">I-Phones</span> could tell me how{" "} 
                 <span className="text-xl font-bold">good I am at making Games</span>.
-                Road blocks.
             </>
         ),
 
         content: (
             <>
-                After some swift exploration (see what I did there) with <span className="text-2xl font-bold">Swift animations</span>,{" "} 
+                After some swift exploration <span className="line-through">(see what I did there)</span> with <span className="text-2xl font-bold">Swift animations</span>,{" "} 
                 <span className="text-2xl font-bold">swipe gestures</span> and <span className="text-2xl font-bold">sand box</span>{" "}
                 I was able to bring to actualization a game that the people around my life who have refused to switch to samsung could play. 
             </>

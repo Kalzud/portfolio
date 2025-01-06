@@ -126,19 +126,10 @@ const projects: ProjectProps[] = [
 
         content: (
             <>
-                I could call it my first dabble into the world of{" "}
-                <span className="text-2xl font-bold">PHP</span>,{" "}
-                yet an explosive web tool was made that aided the onboarding of applicants in 
-                recruitment processes. I would turn out to be juggling{" "}
-                <span className="text-2xl font-bold">SCRUM</span>{" "}
-                requirements with stakeholders whilst maintaining{" "}
-                <span className="text-2xl font-bold">Backend Excellency</span>. My{" "}
-                <span className="text-2xl font-bold">PHP</span>,{" "}
-                <span className="line-through">affair</span>, I mean friendship did not leave out my dear{" "}
-                <span className="text-2xl font-bold">SQL</span> queries and{" "}
-                <span className="text-2xl font-bold">Typescript's</span>{" "}
-                sibling{" "}
-                <span className="text-2xl font-bold">Javascript</span>.<br/>
+                When approaching <span className="text-2xl font-bold">Kotlin</span> I felt the best place to start the exploration would be with a{" "} 
+                <span className="text-2xl font-bold">mobile game</span> so i get to play around with some <span className="text-2xl font-bold">algorithm</span> and{" "} 
+                <span className="text-2xl font-bold">game physics</span>. Was it worth it? <span className="text-2xl font-bold">Yes</span>. <span className="text-2xl font-bold">Kotlin</span> on{" "} 
+                <span className="text-2xl font-bold">Android Development</span> was an easy walk through having already got previous experience with <span className="text-2xl font-bold">Java</span>.
             </>
         ),
 
@@ -169,17 +160,9 @@ const projects: ProjectProps[] = [
 
         content: (
             <>
-                Frankly, I was tired of watching amazing movies alone; well that's part of it, the other part was 
-                me thinking it would be interesting to have all of this in one application, hence began to make it.
-                This is one of my most profound immersive mobile application project combining{" "} 
-                <span className="text-2xl font-bold">Streaming</span> and{" "} 
-                <span className="text-2xl font-bold">Social Features</span>.{" "}
-                Even if it was not as explosive to details as the guy in my head drew it, it was very close
-                and I have got{" "} 
-                <span className="text-2xl font-bold">Java</span>,{" "} 
-                <span className="text-2xl font-bold">Junit</span> and{" "} 
-                <span className="text-2xl font-bold">Firebase</span>{" "} 
-                to thank for that.
+                Usually when I want to explore a new <span className="text-2xl font-bold">framework</span> I start with a new idea but on 
+                this occasion to explore <span className="text-2xl font-bold">Laravel</span> I went with a clone of already existing 
+                instagram. I felt it had enough features to push me and still make me discover <span className="text-2xl font-bold">Laravel</span> in its details.
             </>
         ),
 
