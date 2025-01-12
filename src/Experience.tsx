@@ -1,4 +1,10 @@
-import classNames from "classnames"; // Utility for conditional classes
+/**
+ * Experience Component
+ * Author: Emmanuel O. Uduma
+ * Description: This section dives into the experiences I have amassed in my few years of software construction.
+ * Accessibility: This component includes proper ARIA roles for enhanced accessibility.
+ */
+
 import { motion } from "framer-motion";
 import React from "react";
 import Tilt from "react-parallax-tilt";
@@ -75,286 +81,159 @@ const screenTalkerStack =[
 
 const Experience: React.FC = () => {
   return (
-    <div className="min-h-screen p-4 sm:p-10 overflow-x-hidden">
-        {/* Heading  */}
-        <motion.div
+    <div className="min-h-screen p-4 sm:p-10 overflow-x-hidden" role="main" aria-labelledby="work-experience-heading">
+      {/* Heading Section */}
+      <motion.div
         className="pb-20"
         initial={{ opacity: 0, y: -100 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
+      >
+        <h1
+          id="work-experience-heading"
+          className="text-6xl font-bold text-center bg-gradient-to-r from-blue-500 to-purple-600 text-transparent bg-clip-text"
         >
-            <h1 className="text-6xl font-bold text-center bg-gradient-to-r from-blue-500 to-purple-600 text-transparent bg-clip-text">Work Experience</h1>
-        </motion.div>
+          Work Experience
+        </h1>
+      </motion.div>
 
-        {/* Card Section */}
+      {/* Experience Cards */}
+      {[{
+        title: "Irwell Bridge Charity",
+        role: "Full Stack Software Developer",
+        stacks: IrwellStack,
+        description: `I helped develop a live Business management game simulation with microservices and APIs, 
+          testing user behavior in work and cooperation scenarios. My responsibilities included M.E.R.N stack development, 
+          AWS servers management, scrum meetings, testing, and user feedback analysis.`,
+        emailSubject: "Irwell Bridge Work Experience",
+      }, {
+        title: "Abia Tech Hub",
+        role: "Frontend and Backend Developer",
+        stacks: AbiaTechStack,
+        description: `During my internship, I built websites for clients with varying specifications and business needs, 
+          gaining extensive experience in full-stack development and collaboration.`,
+        emailSubject: "Abia Tech Hub Work Experience",
+      }, {
+        title: "ScreenTalker",
+        role: "Immersive Project Experience",
+        stacks: screenTalkerStack,
+        description: `This immersive project involved scrum meetings, retrospectives, MVP development, user acceptance testing, 
+          and continuous feedback with users and supervisors.`,
+        emailSubject: "ScreenTalker Project Experience",
+        video: screentalker,
+      }].map((experience, index) => (
         <motion.div
-            className="mt-12 p-6 h-full"
-            initial={{ opacity: 0, y: 200 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+          key={index}
+          className="mt-12 p-6 h-full"
+          initial={{ opacity: 0, y: 200 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
         >
-                <div className="min-h-screen bg-black bg-opacity-5 hover:bg-gradient-to-r from-blue-950 to-purple-950 flex flex-col items-center justify-center text-center rounded-full">
-                <Tilt
-                    className="w-fit h-fit text-center mt-6 pt-20 items-center justify-center"
+          <div
+            className="min-h-screen bg-black bg-opacity-5 hover:bg-gradient-to-r from-blue-950 to-purple-950 flex flex-col items-center justify-center text-center rounded-full"
+            role="region"
+            aria-labelledby={`experience-heading-${index}`}
+          >
+            {/* Experience Title */}
+            <Tilt
+              className="w-fit h-fit text-center mt-6 pt-20"
+              tiltMaxAngleX={25}
+              tiltMaxAngleY={25}
+              glareEnable={true}
+              glareMaxOpacity={0}
+              scale={1.1}
+            >
+              <h1
+                id={`experience-heading-${index}`}
+                className="text-white font-bold underline mt-6 pt-20 text-4xl sm:text-5xl lg:text-6xl"
+              >
+                {experience.title}
+              </h1>
+            </Tilt>
+
+            {/* Role */}
+            <Tilt
+              className="w-fit h-fit text-center mt-6"
+              tiltMaxAngleX={25}
+              tiltMaxAngleY={25}
+              glareEnable={true}
+              glareMaxOpacity={0}
+              scale={1.1}
+            >
+              <motion.h2 className="text-3xl font-bold">
+                Role: {experience.role}
+              </motion.h2>
+            </Tilt>
+
+            {/* Stacks */}
+            <h3 className="text-2xl font-bold mt-6 underline">Technologies Used</h3>
+            <div className="grid grid-cols-3 gap-4 mb-4 w-full items-center justify-center pt-10">
+              {experience.stacks.map((stack, stackIndex) => (
+                <motion.div
+                  key={stack.id}
+                  className="flex justify-center items-center"
+                >
+                  <Tilt
+                    className="w-20 h-20"
                     tiltMaxAngleX={25}
                     tiltMaxAngleY={25}
                     glareEnable={true}
-                    glareMaxOpacity={0}
+                    glareMaxOpacity={0.4}
                     scale={1.1}
-                >
-                    <h1
-                        className={classNames(
-                            "text-white font-bold w-full underline mt-6 pt-20",
-                            "text-4xl sm:text-5xl lg:text-6xl text-center"
-                        )}
-                    >
-                        Irwell Bridge Charity
-                    </h1>
-                </Tilt>
-                    <Tilt
-                        className="w-fit h-fit text-center mt-6 pt-20 items-center justify-center"
-                        tiltMaxAngleX={25}
-                        tiltMaxAngleY={25}
-                        glareEnable={true}
-                        glareMaxOpacity={0}
-                        scale={1.1}
-                    >
-                        <motion.h2 className="text-3xl font-bold text-center">Role: Full Stack Software Developer</motion.h2>
-                    </Tilt>
-                    <h3 className="text-2xl font-bold mt-6 pt-20 underline">What did I do There</h3>
-                    <div className="grid grid-cols-3 gap-4 mb-4 w-full items-center justify-center pt-20">
-                        {IrwellStack.map((stack, index) => {
-                            return (
-                                <motion.div
-                                    key={stack.id} // Unique key for each stack
-                                    className="flex justify-center items-center"
-                                >
-                                    <Tilt
-                                        className="w-20 h-20"
-                                        tiltMaxAngleX={25}
-                                        tiltMaxAngleY={25}
-                                        glareEnable={true}
-                                        glareMaxOpacity={0.4}
-                                        scale={1.1}
-                                    >
-                                        <motion.img
-                                            src={stack.image} // Use the stack image
-                                            alt={stack.title} // Use the stack title for alt text
-                                            className="w-20 h-20 rounded-full"
-                                            initial={{ y: 50, opacity: 0 }}
-                                            animate={{ y: 0, opacity: 1 }}
-                                            transition={{ duration: 1, delay: index * 0.1 }}
-                                        />
-                                    </Tilt>         
-                                </motion.div>
-                            );
-                        })}
-                    </div>
-                    <h3 className="text-lg font-bold mt-6 underline">Brief Description</h3>
-                    <p className="text-base px-6 max-w-5xl mt-6">
-                        I helped develop a live Business management game simulation with micro services and APIs, to test and monitor user behavior in work and cooperation situations.
-                        The focus was on the M.E.R.N stack but being in this case more than a full stack developer my experience expanded into development operations, 
-                        AWS servers, scrum meetings with stake holders, testing , user-acceptance test and user surveys outside of work.
-                    </p>
-                    <Tilt
-                        className="w-fit h-fit text-center mt-6 pt-8 pb-5 items-center justify-center"
-                        tiltMaxAngleX={25}
-                        tiltMaxAngleY={25}
-                        glareEnable={true}
-                        glareMaxOpacity={0}
-                        scale={1.1}
-                    >
-                        <button className="rounded">
-                            <a href="mailto:udumakalz@gmail.com?subject=Inquiry about Irwell Bridge Work Experience&body=Hi,%0A%0AI would like to know more about your Irwell Bridge Work Experience." 
-                            className="text-white bg-gradient-to-r from-blue-500 to-purple-600 block w-full text-center py-2 px-4 rounded">
-                                Email to Find Out More About This Experience
-                            </a>
-                        </button>
-                    </Tilt>
-                </div>
-        </motion.div>
-
-
-        <motion.div
-            className="mt-12 p-6 h-full pt-20"
-            initial={{ opacity: 0, y: 200 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-        >
-                <div className="min-h-screen bg-black bg-opacity-5 hover:bg-gradient-to-r from-blue-950 to-purple-950 flex flex-col items-center justify-center text-center rounded-full">
-                <Tilt
-                    className="w-fit h-fit text-center mt-6 pt-20 items-center justify-center"
-                    tiltMaxAngleX={25}
-                    tiltMaxAngleY={25}
-                    glareEnable={true}
-                    glareMaxOpacity={0}
-                    scale={1.1}
-                >
-                    <h1
-                        className={classNames(
-                            "text-white font-bold w-full underline mt-6 pt-20",
-                            "text-4xl sm:text-5xl lg:text-6xl text-center"
-                        )}
-                    >
-                        Abia Tech Hub
-                    </h1>
-                </Tilt>
-                    <Tilt
-                        className="w-fit h-fit text-center mt-6 pt-20 items-center justify-center"
-                        tiltMaxAngleX={25}
-                        tiltMaxAngleY={25}
-                        glareEnable={true}
-                        glareMaxOpacity={0}
-                        scale={1.1}
-                    >
-                        <motion.h2 className="text-3xl font-bold text-center">Role: Frontend and Backend Developer</motion.h2>
-                    </Tilt>
-                    <h3 className="text-2xl font-bold mt-6 pt-20 underline">What did I do There</h3>
-                    <div className="grid grid-cols-3 gap-4 mb-4 w-full items-center justify-center pt-20">
-                        {AbiaTechStack.map((stack, index) => {
-                            return (
-                                <motion.div
-                                    key={stack.id} // Unique key for each stack
-                                    className="flex justify-center items-center"
-                                >
-                                    <Tilt
-                                        className="w-20 h-20"
-                                        tiltMaxAngleX={25}
-                                        tiltMaxAngleY={25}
-                                        glareEnable={true}
-                                        glareMaxOpacity={0.4}
-                                        scale={1.1}
-                                    >
-                                        <motion.img
-                                            src={stack.image} // Use the stack image
-                                            alt={stack.title} // Use the stack title for alt text
-                                            className="w-20 h-20 rounded-full"
-                                            initial={{ y: 50, opacity: 0 }}
-                                            animate={{ y: 0, opacity: 1 }}
-                                            transition={{ duration: 1, delay: index * 0.1 }}
-                                        />
-                                    </Tilt>         
-                                </motion.div>
-                            );
-                        })}
-                    </div>
-                    <h3 className="text-lg font-bold mt-6 underline">Brief Description</h3>
-                    <p className="text-base px-6 max-w-5xl mt-6">
-                        The company is a website building company and during my internship there I participated in 
-                        the building of sites for varying customers with varying specifications for varying business needs.
-                    </p>
-                    <Tilt
-                        className="w-fit h-fit text-center mt-6 pt-8 pb-5 items-center justify-center"
-                        tiltMaxAngleX={25}
-                        tiltMaxAngleY={25}
-                        glareEnable={true}
-                        glareMaxOpacity={0}
-                        scale={1.1}
-                    >
-                        <button className="rounded">
-                            <a href="mailto:udumakalz@gmail.com?subject=Inquiry about Abia Tech Hub Work Experience&body=Hi,%0A%0AI would like to know more about your Abia Tech Hub Work Experience." 
-                            className="text-white bg-gradient-to-r from-blue-500 to-purple-600 block w-full text-center py-2 px-4 rounded">
-                                Email to Find Out More About This Experience
-                            </a>
-                        </button>
-                    </Tilt>
-                </div>
-        </motion.div>
-
-        <motion.div
-            className="mt-12 p-6 h-full pt-20"
-            initial={{ opacity: 0, y: 200 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-        >
-                <div className="min-h-screen bg-black bg-opacity-5 hover:bg-gradient-to-r from-blue-950 to-purple-950 flex flex-col items-center justify-center text-center rounded-full">
-                <Tilt
-                    className="w-fit h-fit text-center mt-6 pt-20 items-center justify-center"
-                    tiltMaxAngleX={25}
-                    tiltMaxAngleY={25}
-                    glareEnable={true}
-                    glareMaxOpacity={0}
-                    scale={1.1}
-                >
-                    <h1
-                        className={classNames(
-                            "text-white font-bold w-full underline mt-6 pt-20",
-                            "text-4xl sm:text-5xl lg:text-6xl text-center"
-                        )}
-                    >
-                        ScreenTalker
-                    </h1>
-                </Tilt>
-                    <Tilt
-                        className="w-fit h-fit text-center mt-6 pt-20 items-center justify-center"
-                        tiltMaxAngleX={25}
-                        tiltMaxAngleY={25}
-                        glareEnable={true}
-                        glareMaxOpacity={0}
-                        scale={1.1}
-                    >
-                        <motion.h2 className="text-3xl font-bold text-center max-w-5xl">
-                            Disclaimer: This was a project but it could count as an experience because of how immersive it was
-                            I am talking scrum meetings, and retrospective, documentation, research and weakly MVPs, user Acceptance tests and surveys
-                            and continuous feedback with users and supervisors. 
-                        </motion.h2>
-                    </Tilt>
-                    <h3 className="text-2xl font-bold mt-6 pt-20 underline">What did I do Here</h3>
-                    <div className="grid grid-cols-3 gap-4 mb-4 w-full items-center justify-center pt-20">
-                        {screenTalkerStack.map((stack, index) => {
-                            return (
-                                <motion.div
-                                    key={stack.id} // Unique key for each stack
-                                    className="flex justify-center items-center"
-                                >
-                                    <Tilt
-                                        className="w-20 h-20"
-                                        tiltMaxAngleX={25}
-                                        tiltMaxAngleY={25}
-                                        glareEnable={true}
-                                        glareMaxOpacity={0.4}
-                                        scale={1.1}
-                                    >
-                                        <motion.img
-                                            src={stack.image} // Use the stack image
-                                            alt={stack.title} // Use the stack title for alt text
-                                            className="w-20 h-20 rounded-full"
-                                            initial={{ y: 50, opacity: 0 }}
-                                            animate={{ y: 0, opacity: 1 }}
-                                            transition={{ duration: 1, delay: index * 0.1 }}
-                                        />
-                                    </Tilt>         
-                                </motion.div>
-                            );
-                        })}
-                    </div>
-                    <h3 className="text-lg font-bold mt-6 underline">Brief Description</h3>
-                    <p className="text-base p-6 mt-6">
-                    <video
-                        className="object-cover rounded-full"
-                        src={screentalker}
-                        autoPlay
-                        muted
-                        loop
+                  >
+                    <motion.img
+                      src={stack.image}
+                      alt={stack.title}
+                      className="w-20 h-20 rounded-full"
+                      initial={{ y: 50, opacity: 0 }}
+                      animate={{ y: 0, opacity: 1 }}
+                      transition={{ duration: 1, delay: stackIndex * 0.1 }}
                     />
-                    </p>
-                    <Tilt
-                        className="w-fit h-fit text-center mt-6 pt-8 pb-5 items-center justify-center"
-                        tiltMaxAngleX={25}
-                        tiltMaxAngleY={25}
-                        glareEnable={true}
-                        glareMaxOpacity={0}
-                        scale={1.1}
-                    >
-                        <button className="rounded">
-                            <a href="mailto:udumakalz@gmail.com?subject=Inquiry about ScreenTalker Project Experience&body=Hi,%0A%0AI would like to know more about your creenTalker Project Experience." 
-                            className="text-white bg-gradient-to-r from-blue-500 to-purple-600 block w-full text-center py-2 px-4 rounded">
-                                Email to Find Out More About This Experience
-                            </a>
-                        </button>
-                    </Tilt>
-                </div>
+                  </Tilt>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Description */}
+            <h3 className="text-lg font-bold mt-6 underline">Description</h3>
+            <div className="text-base px-6 max-w-5xl mt-6">
+              {experience.description}
+            </div>
+
+            {/* Video (if available) */}
+            {experience.video && (
+              <video
+                className="object-cover rounded-lg mt-6"
+                src={experience.video}
+                autoPlay
+                muted
+                loop
+                aria-label="Project demonstration video"
+              />
+            )}
+
+            {/* Contact Button */}
+            <Tilt
+              className="w-fit h-fit text-center mt-6 pt-8 pb-5"
+              tiltMaxAngleX={25}
+              tiltMaxAngleY={25}
+              glareEnable={true}
+              glareMaxOpacity={0}
+              scale={1.1}
+            >
+              <button className="rounded">
+                <a
+                  href={`mailto:udumakalz@gmail.com?subject=Inquiry about ${experience.emailSubject}`}
+                  className="text-white bg-gradient-to-r from-blue-500 to-purple-600 block w-full text-center py-2 px-4 rounded"
+                  aria-label={`Email to inquire about ${experience.title}`}
+                >
+                  Email to Find Out More About This Experience
+                </a>
+              </button>
+            </Tilt>
+          </div>
         </motion.div>
+      ))}
     </div>
   );
 };

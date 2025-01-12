@@ -1,103 +1,52 @@
+// ======================================================= Imports ============================================================
 import classNames from "classnames"; // Utility for conditional classes
-import { motion } from "framer-motion";
-import React, { useState } from "react";
-import Tilt from "react-parallax-tilt";
-
+import { motion } from "framer-motion"; //Framer-motion for smooth animations
+import React, { useState } from "react"; // React is used for handling component states and rendering JSX
+import Tilt from "react-parallax-tilt"; // Provides tilt effects to images for a parallax-like experience
 
 // ======================================================= Picture imports for projects ====================================================================
 import javaDesktopGameBg from './assets/desktopGame.png';
-import socialWebBg from './assets/phone messaging.png';
+import socialWebBg from './assets/socialWeb.png';
 import swiftGameBg from './assets/swiftGame.png';
-
 
 // ======================================================= Picture imports for stack ====================================================================
 import ajax from './assets/ajax.png';
-import androidStudio from './assets/android-studio.png';
-import android from './assets/android.png';
-import api from './assets/api.png';
-import aws from './assets/aws.png';
-import blade from './assets/blade.png';
-import blocTest from './assets/bloc-test.png';
-import bloc from './assets/bloc.png';
 import bootStrap from './assets/bootstrap.png';
-import cPlus from './assets/c++.png';
 import css from './assets/css.png';
-import dart from './assets/dart.png';
-import devOps from './assets/dev-ops.png';
-import docker from './assets/docker.png';
-import express from './assets/express.png';
-import firebaseFunctions from './assets/firebase functions.png';
-import firebase from './assets/firebase.png';
-import flutter from './assets/flutter.png';
 import html from './assets/html.png';
 import ios from './assets/ios.png';
 import java from './assets/java.png';
 import javascript from './assets/javascript.png';
-import jest from './assets/jest.png';
-import junit from './assets/junit.png';
-import kotlin from './assets/kotlin.png';
-import laravel from './assets/laravel.png';
-import mongoDb from './assets/mongo.png';
-import mvc from './assets/mvc.png';
 import mySql from './assets/mySql.png';
-import nodejs from './assets/nodejs.png';
 import php from './assets/php.png';
 import phpStorm from './assets/phpstorm.png';
-import react from './assets/react.png';
-import scrum from './assets/scrum.png';
 import swift from './assets/swift.png';
-import tailwind from './assets/tailwind.png';
-import typescript from './assets/typescript.png';
-import visualStudio from './assets/visual-studio.png';
 import xcode from './assets/xcode.png';
 
-
-
-// ======================================================Tech Stack Images for Projects ===============================================
-const stacks =[
-    {id: 1, title:"Ajax", image: ajax},
-    {id: 2, title:"Android-Studio", image: androidStudio},
-    {id: 3, title:"Android", image: android},
-    {id: 4, title:"API", image: api},
-    {id: 5, title:"AWS", image: aws},
-    {id: 6, title:"Blade", image: blade},
-    {id: 7, title:"Bloc-Test", image: blocTest},
-    {id: 8, title:"Bloc", image: bloc},
-    {id: 9, title:"BootStrap", image: bootStrap},
-    {id: 10, title:"C++", image: cPlus},
-    {id: 11, title:"CSS", image: css},
-    {id: 12, title:"Dart", image: dart},
-    {id: 13, title:"Dev-Ops", image: devOps},
-    {id: 14, title:"Docker", image: docker},
-    {id: 15, title:"Express", image: express},
-    {id: 16, title:"Firebase-Functions", image: firebaseFunctions},
-    {id: 17, title:"Firebase", image: firebase},
-    {id: 18, title:"Flutter", image: flutter},
-    {id: 19, title:"HTML", image: html},
-    {id: 21, title:"IOS", image: ios},
-    {id: 22, title:"Java", image: java},
-    {id: 23, title:"JavaScript", image: javascript},
-    {id: 24, title:"Jest", image: jest},
-    {id: 25, title:"JUnit", image: junit},
-    {id: 26, title:"Kotlin", image: kotlin},
-    {id: 27, title:"Laravel", image: laravel},
-    {id: 28, title:"MongoDb", image: mongoDb},
-    {id: 29, title:"MVC", image: mvc},
-    {id: 30, title:"MySql", image: mySql},
-    {id: 31, title:"NodeJs", image: nodejs},
-    {id: 32, title:"PHP", image: php},
-    {id: 33, title:"PHPStorm", image: phpStorm},
-    {id: 34, title:"React", image: react},
-    {id: 35, title:"Scrum", image: scrum},
-    {id: 36, title:"Swift", image: swift},
-    {id: 37, title:"Tailwind", image: tailwind},
-    {id: 38, title:"TypeScript", image: typescript},
-    {id: 39, title:"Visual-Studio", image: visualStudio},
-    {id: 40, title:"Xcode", image: xcode},
+// ====================================================== Tech Stack Images for Projects ===============================================
+const stacks = [
+    { id: 1, title: "Ajax", image: ajax },
+    { id: 9, title: "BootStrap", image: bootStrap },
+    { id: 11, title: "CSS", image: css },
+    { id: 19, title: "HTML", image: html },
+    { id: 21, title: "IOS", image: ios },
+    { id: 22, title: "Java", image: java },
+    { id: 23, title: "JavaScript", image: javascript },
+    { id: 30, title: "MySql", image: mySql },
+    { id: 32, title: "PHP", image: php },
+    { id: 33, title: "PHPStorm", image: phpStorm },
+    { id: 36, title: "Swift", image: swift },
+    { id: 40, title: "Xcode", image: xcode },
 ];
 
+// Helper function to get the relevant tech stacks for a project
+const getStacksForProject = (stackIds: number[]) => {
+    return stacks.filter((stack) => stackIds.includes(stack.id));
+};
+
+// Interface for ProjectProps
 interface ProjectProps {
-    id: number
+    id: number;
     title: string;
     content: React.ReactNode;
     image: string;
@@ -106,118 +55,108 @@ interface ProjectProps {
     findOutMoreButton: React.ReactNode;
 }
 
-const getStacksForProject =(stackIds: number[]) => {
-    return stacks.filter((stack) => stackIds.includes(stack.id));
-};
-
+// Array holding projects data
 const projects: ProjectProps[] = [
-    //=========================================== Social media Web Application ; Start ==================================================================================
     {
-        id: 0, 
-        title:"Social Media Web Application", 
-        stack: [32,23,30,1,9,11,19,33,], 
+        id: 0,
+        title: "Social Media Web Application",
+        stack: [32, 23, 30, 1, 9, 11, 19, 33],
         image: socialWebBg,
-
         motivation: (
             <>
-                <span className="text-2xl font-bold underline">Motivation</span><br/>
+                <span className="text-2xl font-bold underline">Motivation</span><br />
                 I wanted to beat my friends at making a social media web application{" "}
-                <span className="text-xl font-bold">MVP</span> with the{" "} 
-                <span className="text-xl font-bold">Most Features</span> in the{" "} 
+                <span className="text-xl font-bold">MVP</span> with the{" "}
+                <span className="text-xl font-bold">Most Features</span> in the{" "}
                 <span className="text-xl font-bold">Fastest Time</span>.
             </>
         ),
-
         content: (
             <>
-                This Unwarranted competition lead to a Social Media Web application exploring the boundaries of{" "} 
-                <span className="text-2xl font-bold">PHP</span> and <span className="text-2xl font-bold">Javascript</span> to implement features 
-                ranging from just messaging, comments and post likes to <span className="text-2xl font-bold">Live maps</span> to view your friends 
-                live locations based of their IP address. Now did I need to lock myself in my room for time and visit the shower less often than normal 
+                This Unwarranted competition lead to a Social Media Web application exploring the boundaries of{" "}
+                <span className="text-2xl font-bold">PHP</span> and <span className="text-2xl font-bold">Javascript</span> to implement features
+                ranging from just messaging, comments and post likes to <span className="text-2xl font-bold">Live maps</span> to view your friends
+                live locations based on their IP address. Now did I need to lock myself in my room for time and visit the shower less often than normal
                 just to get this done in a short time, probably not but it was worth the bragging rights.
             </>
         ),
-
         findOutMoreButton: (
             <button className="py-2 px-4 rounded">
-                <a href="mailto:udumakalz@gmail.com?subject=Inquiry about Social media Web Application&body=Hi,%0A%0AI would like to know more about the Social media Web Application project." 
-                className="text-white bg-gradient-to-r from-blue-500 to-purple-600 block w-full text-center py-2 px-4 rounded">
+                <a
+                    href="mailto:udumakalz@gmail.com?subject=Inquiry about Social media Web Application&body=Hi,%0A%0AI would like to know more about the Social media Web Application project."
+                    className="text-white bg-gradient-to-r from-blue-500 to-purple-600 block w-full text-center py-2 px-4 rounded"
+                    aria-label="Send an email to find out more about the Social Media Web Application"
+                >
                     Email to Find Out More About This Project
                 </a>
             </button>
         ),
     },
-    //=========================================== End ====================================================================================================================
-
-    //=========================================== Java Desktop Game ; Start ==================================================================================
     {
-        id: 0, 
-        title:"Java Desktop Game Application", 
-        stack: [22], 
+        id: 1,
+        title: "Java Desktop Game Application",
+        stack: [22],
         image: javaDesktopGameBg,
-
         motivation: (
             <>
-                <span className="text-2xl font-bold underline">Motivation</span><br/>
-                A <span className="text-xl font-bold">Game</span> I could play on <span className="text-xl font-bold">My Own Terms</span>.
+                <span className="text-2xl font-bold underline">Motivation</span><br />
+                A <span className="text-xl font-bold">Game</span> I could play on{" "}
+                <span className="text-xl font-bold">My Own Terms</span>.
             </>
         ),
-
         content: (
             <>
-                Asides Need For Speed and World Class Fifa I have never really excelled at games, so I when I wanted to make something I could play on my own terms 
-                I turned to <span className="text-2xl font-bold">Java</span>. This opportunity presented me with <span className="text-2xl font-bold">Java algorithm</span>{" "} 
-                and <span className="text-2xl font-bold">Game Physics</span> experience; intensively pushing my Java knowledge boundaries. 
+                Asides Need For Speed and World Class Fifa I have never really excelled at games, so I when I wanted to make something I could play on my own terms
+                I turned to <span className="text-2xl font-bold">Java</span>. This opportunity presented me with <span className="text-2xl font-bold">Java algorithm</span>{" "}
+                and <span className="text-2xl font-bold">Game Physics</span> experience; intensively pushing my Java knowledge boundaries.
                 Well the Euphoria was short lived as I could not beat my own high score after a certain point.
             </>
         ),
-
         findOutMoreButton: (
             <button className="py-2 px-4 rounded">
-                <a href="mailto:udumakalz@gmail.com?subject=Inquiry about Java Desktop Game Application&body=Hi,%0A%0AI would like to know more about the Java Desktop Game Application project." 
-                className="text-white bg-gradient-to-r from-blue-500 to-purple-600 block w-full text-center py-2 px-4 rounded">
+                <a
+                    href="mailto:udumakalz@gmail.com?subject=Inquiry about Java Desktop Game Application&body=Hi,%0A%0AI would like to know more about the Java Desktop Game Application project."
+                    className="text-white bg-gradient-to-r from-blue-500 to-purple-600 block w-full text-center py-2 px-4 rounded"
+                    aria-label="Send an email to find out more about the Java Desktop Game Application"
+                >
                     Email to Find Out More About This Project
                 </a>
             </button>
         ),
     },
-    //=========================================== End ====================================================================================================================
-
-    //=========================================== Swift Mobile 2D Game ; Start ==================================================================================
     {
-        id: 0, 
-        title:"Swift Mobile 2D Game Application", 
-        stack: [36,40,21], 
+        id: 2,
+        title: "Swift Mobile 2D Game Application",
+        stack: [36, 40, 21],
         image: swiftGameBg,
-
         motivation: (
             <>
-                <span className="text-2xl font-bold underline">Motivation</span><br/>
-                As a sign of <span className="text-xl font-bold">Love</span> I had to remake my{" "} 
+                <span className="text-2xl font-bold underline">Motivation</span><br />
+                As a sign of <span className="text-xl font-bold">Love</span> I had to remake my{" "}
                 <span className="text-xl font-bold">Kotlin</span> game on <span className="text-xl font-bold">IOS</span> so my friends with{" "}
-                <span className="text-xl font-bold">I-Phones</span> could tell me how{" "} 
+                <span className="text-xl font-bold">I-Phones</span> could tell me how{" "}
                 <span className="text-xl font-bold">good I am at making Games</span>.
             </>
         ),
-
         content: (
             <>
-                After some swift exploration <span className="line-through">(see what I did there)</span> with <span className="text-2xl font-bold">Swift animations</span>,{" "} 
+                After some swift exploration <span className="line-through">(see what I did there)</span> with <span className="text-2xl font-bold">Swift animations</span>,{" "}
                 <span className="text-2xl font-bold">swipe gestures</span> and <span className="text-2xl font-bold">sand box</span>{" "}
-                I was able to bring to actualization a game that the people around my life who have refused to switch to samsung could play. 
+                I was able to bring to actualization a game that the people around my life who have refused to switch to samsung could play.
             </>
         ),
-
         findOutMoreButton: (
             <button className="py-2 px-4 rounded">
-                <a href="mailto:udumakalz@gmail.com?subject=Inquiry about Swift Mobile 2D Game Application&body=Hi,%0A%0AI would like to know more about the Swift Mobile 2D Game Application project." 
-                className="text-white bg-gradient-to-r from-blue-500 to-purple-600 block w-full text-center py-2 px-4 rounded">
+                <a
+                    href="mailto:udumakalz@gmail.com?subject=Inquiry about Swift Mobile 2D Game Application&body=Hi,%0A%0AI would like to know more about the Swift Mobile 2D Game Application project."
+                    className="text-white bg-gradient-to-r from-blue-500 to-purple-600 block w-full text-center py-2 px-4 rounded"
+                    aria-label="Send an email to find out more about the Swift Mobile 2D Game Application"
+                >
                     Email to Find Out More About This Project
                 </a>
             </button>
         ),
     },
-    //=========================================== End ====================================================================================================================
 ];
 
 const ProjectsSecondRow: React.FC = () => {
@@ -299,6 +238,7 @@ const ProjectsSecondRow: React.FC = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 1 }}
+            aria-live="polite" // This will notify screen readers of dynamic changes
             >
                 <motion.h1
                 className="text-center"
@@ -306,13 +246,15 @@ const ProjectsSecondRow: React.FC = () => {
                 animate={{ x: 0, opacity: 1 }}
                 transition={{ duration: 1 }}
                 >
-                    {highlightedProject?.motivation || (
-                        <>
-                            <span className="text-2xl font-bold">Hover over</span> to{" "} 
-                            <span className="text-2xl font-bold">peep</span> at details 
-                            or <span className="text-2xl font-bold">click</span> on a card to{" "} 
-                            <span className="text-2xl font-bold">see</span> more details!
-                        </>
+                    {highlightedProject?.motivation ? (
+                        <p className="text-xl">{highlightedProject.motivation}</p>
+                    ) : (
+                        <p className="text-xl">
+                        <span className="text-2xl font-bold">Hover over</span> to{" "}
+                        <span className="text-2xl font-bold">peep</span> at details 
+                        or <span className="text-2xl font-bold">click</span> on a card to{" "} 
+                        <span className="text-2xl font-bold">see</span> more details!
+                        </p>
                     )}
                 </motion.h1>
 
